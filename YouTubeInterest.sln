@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTubeInterest", "YouTubeInterest\YouTubeInterest.csproj", "{941B7F37-C838-4002-A8F6-5F32AEE71796}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{DF488E72-FEF8-4F10-BC74-AA6A1EFC7FF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{941B7F37-C838-4002-A8F6-5F32AEE71796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941B7F37-C838-4002-A8F6-5F32AEE71796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941B7F37-C838-4002-A8F6-5F32AEE71796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941B7F37-C838-4002-A8F6-5F32AEE71796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF488E72-FEF8-4F10-BC74-AA6A1EFC7FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF488E72-FEF8-4F10-BC74-AA6A1EFC7FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF488E72-FEF8-4F10-BC74-AA6A1EFC7FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF488E72-FEF8-4F10-BC74-AA6A1EFC7FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .grid-container {
+            display: grid;
+            grid-column-sizing: auto;
+            grid-template-columns: auto auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body style="padding-top:20px">
+    <div>
+        <img style="z-index:1000;position:fixed; top:50%;left:40%; height:30%;width:30%  " src="ajax-loader.gif" id="loaderImage" class="hide" / >
+       
+         <div class="col-md-10 col-md-offset-1">
+            <div class="well">
+                <input style="padding:3px;" id="btnGetMyInterestsTop20" class="btn btn-success" type="button" value="Get Youtube Interests Last 20 Videos" / >
+                <input style="padding:3px;" id="btnGetMyInterestsTop50" class="btn btn-success" type="button" value="Get Youtube Interests Last 50 Videos" / >
+                <input style="padding:3px;" id="btnGetMyInterests" class="btn btn-success" type="button" value="Get Youtube Interests All Videos" / >
+                <span id="spanUsername" class="text-muted"> </span>
+                <input style="padding:3px;" id="btnLogoff" class="btn btn-success" type="button" value="Log Off" / >
+                </div>
+
+                <div class="well">
+          
+                <input style="padding:3px;" id="btnGridView" class="btn btn-success " type="button" value="Grid View" / >
+                <input style="padding:3px;" id="btnListView" class="btn btn-success " type="button" value="Table View" / >
+            </div>
+
+            <table style="padding:10px" class="table table-bordered" id="tblData">
+                <thead>
+                    <tr class="success">
+                        <th> Category Icon</th>
+                        <th> Video Category</th>
+                        <th> Number of videos Liked</th>
+                    </tr>
+                </thead>
+                <tbody id="tblBody"></tbody>
+            </table>
+
+            <!-- <div class="modal fade" tabindex="-1" id="errorModal" data-keyboard="false" data-backdrop="static" >
+                    <div class="modal-dialog modal-sm" >
+                        <div class="modal-content" >
+                            <div class="modal-header" >
+                                <button type="button" class="close" data-dismiss="modal" > &times; </button >
+                                <h4 class="modal-title" > Session Expired</h4 >
+                            </div >
+                            <div class="modal-body" >
+                                <h2 class="modal-title" > Registration Successful</h2class >
+                            </div >
+                            <div class="modal-footer" >
+                                <button type="button" data-dismiss="modal" class="btn btn-success" > Close </button >
+                            </div >
+                        </div >
+                    </div >
+            </div >-->
+
+            <div id="divError" class="alert alert-danger collapse">
+                <a id="linkClose" class="close" href="#"> &times;</a>
+                <div id="divErrorText"> </div>
+            </div>
+
+            <div id="contentGrid" class="grid-container hide">
+
+            </div>
+
+        </div>
+
+        <!-- <img src="CategoryIcon\education.png" / >-->
+
+        <script src="Scripts/jquery-1.10.2.min.js"></script>
+        <script src="Scripts/bootstrap.min.js"> </script>
+        <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            if (localStorage.getItem('accessToken') == null) {
+                window.location.href = "Login.html";
+            }
+
+            $('#btnGridView').click(function () {
+
+                $('#tblData').addClass("hide");//Table Hide
+                $('#contentGrid').removeClass("hide");//Grid Show
+
+            });
+
+            $('#btnListView').click(function () {
+                $('#tblData').removeClass("hide");//Table Hide
+                $('#contentGrid').addClass("hide");//Grid Show
+            });
+
+            $('#btnGetMyInterestsTop20').click(function () {
+                $("#loaderImage").removeClass("hide");
+                console.log(localStorage.getItem("accessToken"));
+                $.ajax({
+                    url: '/api/yapi?videoCount=20',
+                    method: 'GET',
+                    headers: {
+                        'Authorization': "Bearer " + localStorage.getItem("accessToken")
+                    },
+                    success: function (response) {
+                        $("#loaderImage").addClass("hide");
+                        $("#tblBody").empty();
+                        console.log("Inside response");
+                        console.log(response);
+                        var data = eval(response); // this will convert your json string to a javascript object
+
+                        for (var key in data) {
+                            var row = $('<tr><td>' + '<img src="CategoryIcon\\education.png" />' + '</td><td>' + key + '</td><td>' + data[key] + '</td></tr>');
+                            var gridItem = $('<div class="grid-item">' + '<img src="CategoryIcon\\education.png" />  </br>' + key + '    ' + data[key] + '</div>');
+                            $('#contentGrid').append(gridItem);
+                            $('#tblData').append(row);
+                        }
+
+
+                    }
+
+                });
+
+            });
+
+            $('#btnGetMyInterestsTop50').click(function () {
+                $("#loaderImage").removeClass("hide");
+                console.log(localStorage.getItem("accessToken"));
+                $.ajax({
+                    url: '/api/yapi?videoCount=50',
+                    method: 'GET',
+                    headers: {
+                        'Authorization': "Bearer " + localStorage.getItem("accessToken")
+                    },
+                    success: function (response) {
+                        $("#loaderImage").addClass("hide");
+                        $("#tblBody").empty();
+                        console.log("Inside response");
+                        console.log(response);
+                        var data = eval(response); // this will convert your json string to a javascript object
+
+                        for (var key in data) {
+                            var row = $('<tr><td>' + '<img src="CategoryIcon\\education.png" />' + '</td><td>' + key + '</td><td>' + data[key] + '</td></tr>');
+                            var gridItem = $('<div class="grid-item">' + '<img src="CategoryIcon\\education.png" />  </br>' + key + '    ' + data[key] + '</div>');
+                            $('#contentGrid').append(gridItem);
+                            $('#tblData').append(row);
+                        }
+
+
+                    }
+
+                });
+
+            });
+
+            $('#btnGetMyInterests').click(function () {
+                $("#loaderImage").removeClass("hide");
+                console.log(localStorage.getItem("accessToken"));
+                $.ajax({
+                    url: '/api/yapi?videoCount=-1',
+                    method: 'GET',
+                    headers: {
+                        'Authorization': "Bearer " + localStorage.getItem("accessToken")
+                    },
+                    success: function (response) {
+                        $("#loaderImage").addClass("hide");
+                        $("#tblBody").empty();
+                        console.log("Inside response");
+                        console.log(response);
+                        var data = eval(response); // this will convert your json string to a javascript object
+
+                        for (var key in data) {
+                            var row = $('<tr><td>' + '<img src="CategoryIcon\\education.png" />' + '</td><td>' + key + '</td><td>' + data[key] + '</td></tr>');
+                            var gridItem = $('<div class="grid-item">' + '<img src="CategoryIcon\\education.png" />  </br>' + key + '    ' + data[key] + '</div>');
+                            $('#contentGrid').append(gridItem);
+                            $('#tblData').append(row);
+                        }
+
+
+                    }
+
+                });
+
+            });
+
+
+            $('#btnLogoff').click(function () {
+                localStorage.removeItem('accessToken');
+                window.location.href = "Login.html";
+
+            });
+
+
+            $("#spanUsername").text("Hello " + localStorage.getItem("userName"));
+            //$('#btnGoogleLogin').click(function () {
+            //    window.location.href = "/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A63890%2FLogin.html&state=W8XaDpYusZXDM6MZK4kN9gjHRgR4Uu5iknoOPz22Q2w1";
+            //});
+
+            $('#linkClose').click(function () {
+                $('#divError').hide('fade')
+            });
+
+            $('#errorModal').on('hidden.bs.modal', function () {
+                window.location.href = "Login.html";
+            });
+
+            //$('#btnRegister').click(function () {
+            //    $('#successModal').modal('show');
+            //});
+
+            //$.ajax({
+            //    url: '/api/Account/UserInfo',
+            //    method: 'GET',
+            //    headers: {
+            //        'content-type': 'application/JSON',
+            //        'Authorization' : 'Bearer ' + accessToken
+            //    },
+            //    success: function (response) {
+            //        if (response.HasRegistered) {
+            //            localStorage.setItem('accessToken', accessToken);
+            //            localStorage.setItem('userName', response.Email);
+            //            window.location.href = "data.html";
+            //        }
+            //        else {
+            //            signupExternalUser(accessToken);
+            //        }
+            //    },
+            //    error: function (jqXHR) {
+
+            //        if(jqXHR.status == "401"){
+            //            $('#errorModal').modal('show');
+            //        }
+            //        else{
+            //            $('#divErrorText').text(jqXHR.responseText);
+            //            $('#divError').show('fade');
+            //        }
+            //        console.warn("Entered the error " + data.responseText + " " + accessToken);
+            //    }
+            //});
+        }); </script>
+    
+    </div>
+</body>
+</html>
