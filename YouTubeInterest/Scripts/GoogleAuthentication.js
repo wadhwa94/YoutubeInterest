@@ -54,7 +54,9 @@ function signupExternalUser(accessToken) {
             'Authorization': 'Bearer ' + accessToken
         },
         success: function (response) {
-            window.location.href = "/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A63890%2FLogin.html&state=W8XaDpYusZXDM6MZK4kN9gjHRgR4Uu5iknoOPz22Q2w1";
+            //window.location.href = "/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A63890%2FLogin.html&state=W8XaDpYusZXDM6MZK4kN9gjHRgR4Uu5iknoOPz22Q2w1";
+            window.location.href = "/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=https%3A%2F%2Fyoutubeinterest.azurewebsites.net%2FLogin.html&state=W8XaDpYusZXDM6MZK4kN9gjHRgR4Uu5iknoOPz22Q2w1";
         }
     });
+    
 }
