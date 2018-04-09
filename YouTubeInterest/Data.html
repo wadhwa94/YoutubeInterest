@@ -113,7 +113,9 @@
                     url: '/api/yapi?videoCount=20',
                     method: 'GET',
                     headers: {
-                        'Authorization': "Bearer " + localStorage.getItem("accessToken")
+                        'Authorization': "Bearer " + localStorage.getItem("accessToken"),
+                        'Access-Control-Allow-Credentials': true
+
                     },
                     success: function (response) {
                         $("#loaderImage").addClass("hide");
@@ -132,6 +134,7 @@
 
                     },
                     error: function (error) {
+                        console.log(localStorage.getItem("accessToken"));
                         console.log(error);
                         console.log(error.error);
                     }
