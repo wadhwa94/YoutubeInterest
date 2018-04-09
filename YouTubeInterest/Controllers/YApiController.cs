@@ -19,7 +19,6 @@ using Google.Apis.YouTube.v3.Data;
 
 namespace YouTubeInterest.Controllers
 {
-    [Authorize]
     public class YApiController : ApiController
     {
         // Get api/yapi
