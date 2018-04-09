@@ -51,6 +51,7 @@ function signupExternalUser(accessToken) {
         //approval_prompt: "force",
         headers: {
             'content-type': 'application/JSON',
+            'Access-Control-Allow-Credentials': true,
             'Authorization': 'Bearer ' + accessToken
         },
         success: function (response) {

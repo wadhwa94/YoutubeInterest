@@ -27,7 +27,7 @@ namespace YouTubeInterest
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:63890 , http://youtubeinterest.azurewebsites.net/ https://youtubeinterest.azurewebsites.net/ ", "*", "*");
+            EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:63890 , http://youtubeinterest.azurewebsites.net https://youtubeinterest.azurewebsites.net https://accounts.google.com", "*", "*");
             config.EnableCors(cors);
         }
     }
