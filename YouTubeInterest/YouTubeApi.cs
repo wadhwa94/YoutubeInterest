@@ -49,7 +49,7 @@ namespace YouTubeInterest
 
 
             UserCredential creds;
-            using (var stream = new FileStream(HttpRuntime.AppDomainAppPath + "YouTubeInterest\\client_secrets.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(HttpRuntime.AppDomainAppPath + "..\\client_secrets.json", FileMode.Open, FileAccess.Read))
             {
                 creds = GoogleWebAuthorizationBroker.AuthorizeAsync(
                         GoogleClientSecrets.Load(stream).Secrets,
