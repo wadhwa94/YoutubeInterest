@@ -53,7 +53,7 @@ namespace YouTubeInterest
             {
                 creds = GoogleWebAuthorizationBroker.AuthorizeAsync(
                         GoogleClientSecrets.Load(stream).Secrets,
-                        new[] { YouTubeService.Scope.YoutubeReadonly },
+                        new[] { YouTubeService.Scope.YoutubeReadonly, YouTubeService.Scope.Youtube, YouTubeService.Scope.YoutubeForceSsl, YouTubeService.Scope.Youtubepartner, YouTubeService.Scope.YoutubepartnerChannelAudit, YouTubeService.Scope.YoutubeUpload },
                         DateTime.Now.Ticks.ToString(), //this string needs to be changed for all the users else it will take the previous one or don't know which one
                         CancellationToken.None,
                         new FileDataStore("Drive.Auth.Store")
