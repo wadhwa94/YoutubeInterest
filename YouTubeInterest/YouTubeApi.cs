@@ -157,7 +157,7 @@ namespace YouTubeInterest
             }
             catch (Exception e)
             {
-                VidCategory_Array.Add("ytService = " + ytService   + e.Message.ToString() + " " + message + " ----  " + e.InnerException, -1);
+                VidCategory_Array.Add( e.Message.ToString() + " " + message + " ----  " + e.InnerException, -1);
                 return VidCategory_Array;
             }
              
