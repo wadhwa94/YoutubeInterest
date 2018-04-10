@@ -152,7 +152,7 @@ namespace YouTubeInterest
             }
             catch (Exception e)
             {
-                VidCategory_Array.Add(e.Message.ToString() + " " + message + " ----  " + e.InnerException, -1);
+                VidCategory_Array.Add("ytService.BatchUri = " + ytService.BatchUri + ytService.Videos.List("content")    + e.Message.ToString() + " " + message + " ----  " + e.InnerException, -1);
                 return VidCategory_Array;
             }
              
