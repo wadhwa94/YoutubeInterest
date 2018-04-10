@@ -25,7 +25,7 @@ namespace YouTubeInterest.Controllers
         // Get api/yapi
         public Dictionary<string, int> GetChannel(int videoCount)
         {
-            Dictionary<string,int> channelId = null;
+            Dictionary<string,int> channelId = new Dictionary<string, int>();
             channelId.Add("Test", 1);
             //YouTubeApi obj = new YouTubeApi();
             //string accessToken = Request.Headers.GetValues("Authorization").First().ToString().Split()[1];
