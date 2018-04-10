@@ -114,7 +114,9 @@
                     method: 'GET',
                     headers: {
                         'Authorization': "Bearer " + localStorage.getItem("accessToken"),
-                        'Access-Control-Allow-Credentials': true
+                        'Access-Control-Allow-Credentials': true,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
 
                     },
                     success: function (response) {

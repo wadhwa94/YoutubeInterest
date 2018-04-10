@@ -31,7 +31,7 @@ namespace YouTubeInterest.Controllers
             //string accessToken = Request.Headers.GetValues("Authorization").First().ToString().Split()[1];
             //User.Claims.FirstOrDefault(c => c.SomeProperty == "access_token")
             //YouTubeApi.AccessToken = accessToken;
-            YouTubeApi obj = new YouTubeApi();
+            //YouTubeApi obj = new YouTubeApi();
            
             channelId = YouTubeApi.GetChannel(videoCount);
 
