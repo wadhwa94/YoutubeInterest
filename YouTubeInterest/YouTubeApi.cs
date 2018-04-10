@@ -84,7 +84,7 @@ namespace YouTubeInterest
             try
             {
                 VidCategory_Array.Add("Jatin", 1);
-                VidCategory_Array.Add("Jatin", 2);
+                VidCategory_Array.Add("Jatin wadhwa", 2);
                 if (ytService==null)
                 VidCategory_Array.Add("Rohitt", 2);
                 //VidCategory_Array.Add( (ytService==null).ToString(), 2);
