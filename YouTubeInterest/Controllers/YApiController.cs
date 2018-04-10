@@ -26,12 +26,12 @@ namespace YouTubeInterest.Controllers
         public Dictionary<string, int> GetChannel(int videoCount)
         {
             Dictionary<string,int> channelId = new Dictionary<string, int>();
-            channelId.Add("Test", 1);
+            //channelId.Add("Test", 1);
             //YouTubeApi obj = new YouTubeApi();
             //string accessToken = Request.Headers.GetValues("Authorization").First().ToString().Split()[1];
             //User.Claims.FirstOrDefault(c => c.SomeProperty == "access_token")
             //YouTubeApi.AccessToken = accessToken;
-            //channelId = YouTubeApi.GetChannel(videoCount);
+            channelId = YouTubeApi.GetChannel(videoCount);
 
             return channelId;
         }
