@@ -80,15 +80,20 @@ namespace YouTubeInterest
             //{
             //    string mychannelId = response.Items[0].Snippet.ChannelId;
             Dictionary<string, int> VidCategory_Array = new Dictionary<string, int>();
-
+            string message = "";
             try
             {
+                message = message + "1 ";
                 var channelsRequest = ytService.Channels.List("contentDetails");
+                message = message + "2 ";
                 channelsRequest.Mine = true;
+                message = message + "3 ";
                 var likePlaylistIIdResponse = channelsRequest.Execute();
+                message = message + "4 ";
                 Google.Apis.YouTube.v3.Data.PlaylistItemListResponse videosResponse = null;
+                message = message + "5 ";
                 int currentVideoCount = 0;
-
+                message = message + "6 ";
                 if (likePlaylistIIdResponse.Items.Count > 0)
                 {
                     string likePlayListId = likePlaylistIIdResponse.Items[0].ContentDetails.RelatedPlaylists.Likes;
@@ -147,7 +152,7 @@ namespace YouTubeInterest
             }
             catch (Exception e)
             {
-                VidCategory_Array.Add(e.Message.ToString(), -1);
+                VidCategory_Array.Add(e.Message.ToString() + " " + message, -1);
                 return VidCategory_Array;
             }
              
